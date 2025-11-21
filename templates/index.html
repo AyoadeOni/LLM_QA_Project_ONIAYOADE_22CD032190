@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Question Answering System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 LLM Question-Answering System</h1>
+        <p class="subtitle">Powered by Groq + LLaMA 3.1 (Nov 2025)</p>
+
+        <form method="POST" class="question-form">
+            <textarea name="question" placeholder="Ask any question..." required>{{ original }}</textarea>
+            <button type="submit">Get Answer</button>
+        </form>
+
+        {% if processed %}
+        <div class="result-box">
+            <div class="section">
+                <h3>📝 Original Question</h3>
+                <p>{{ original }}</p>
+            </div>
+
+            <div class="section">
+                <h3>🔄 Processed Question</h3>
+                <p class="processed">{{ processed }}</p>
+            </div>
+
+            <div class="section answer">
+                <h3>🤖 LLM Answer</h3>
+                <p>{{ answer | safe }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+        <footer>
+            <p>Built for NLP Project • Flask + Groq API • 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
